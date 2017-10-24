@@ -35,3 +35,7 @@ Press a `number` then press `Fact`, and followed by the `=` button.
 ## Screenshot
 
 ![Demo](screenshot.png)
+
+---
+
+The calculator logo that I used is freely available for download and is provided by [Smashicons](https://www.flaticon.com/free-icon/calculator_149168#term=calculator&page=1&position=2) at [Flaticon.com](Flaticon.com).
