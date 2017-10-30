@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,14 +38,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Calculator-Icon" translatesAutoresizingMaskIntoConstraints="NO" id="WGY-xJ-nhJ">
-                                <rect key="frame" x="31" y="45" width="56" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="CGb-Ox-qIk"/>
-                                    <constraint firstAttribute="height" constant="45" id="bit-Qe-ZMA"/>
-                                    <constraint firstAttribute="width" secondItem="WGY-xJ-nhJ" secondAttribute="height" multiplier="56:45" id="gc7-bC-mbA"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zb2-uN-pOI">
                                 <rect key="frame" x="32" y="321" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -269,16 +260,16 @@
                                     <action selector="num0:" destination="BYZ-38-t0r" eventType="touchUpInside" id="19g-gE-uce"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b0-dL-Zeq">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b0-dL-Zeq">
                                 <rect key="frame" x="112" y="561" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
-                                <state key="normal" title=".">
+                                <state key="normal" title="%">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="dot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lSy-v2-VV8"/>
+                                    <action selector="modBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lb3-TQ-Znh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qtq-al-apm">
@@ -293,12 +284,19 @@
                                     <action selector="num5:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zb2-cw-olg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwB-dA-G1b">
+                                <rect key="frame" x="31" y="45" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="History"/>
+                                <connections>
+                                    <segue destination="d8K-BQ-LM2" kind="show" identifier="HistorySegue" id="VEC-Hd-SR5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cy6-6u-aJE" secondAttribute="trailing" constant="31" id="Bv4-Vv-1LY"/>
                             <constraint firstItem="TtK-Ph-uaK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="Ght-3q-aIs"/>
-                            <constraint firstItem="WGY-xJ-nhJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="JGA-GD-5I4"/>
                             <constraint firstItem="cy6-6u-aJE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Kt1-7r-No2"/>
                             <constraint firstItem="TtK-Ph-uaK" firstAttribute="top" secondItem="6cp-ZI-wek" secondAttribute="bottom" constant="28" id="PPX-3P-c9Q"/>
                             <constraint firstItem="6cp-ZI-wek" firstAttribute="trailing" secondItem="cy6-6u-aJE" secondAttribute="trailing" id="TJM-EF-Czy"/>
@@ -306,7 +304,6 @@
                             <constraint firstItem="6cp-ZI-wek" firstAttribute="top" secondItem="cy6-6u-aJE" secondAttribute="bottom" constant="3" id="lXO-DV-gpF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TtK-Ph-uaK" secondAttribute="trailing" constant="31" id="mW3-xK-elq"/>
                             <constraint firstItem="6cp-ZI-wek" firstAttribute="trailing" secondItem="TtK-Ph-uaK" secondAttribute="trailing" id="sQy-ME-Zsz"/>
-                            <constraint firstItem="WGY-xJ-nhJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="zZf-pU-UpE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -318,8 +315,44 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
+        <!--History View Controller-->
+        <scene sceneID="RBR-fB-ttQ">
+            <objects>
+                <viewController id="d8K-BQ-LM2" customClass="HistoryViewController" customModule="Simple_Calc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WPc-U5-jQQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBs-3i-rXu">
+                                <rect key="frame" x="255" y="38" width="89" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sfi-Lh-8K7">
+                                <rect key="frame" x="32" y="39" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="MainSegue" id="xUc-Lu-h5z"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fhz-Ac-BhD">
+                                <rect key="frame" x="16" y="100" width="343" height="547"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="NPf-MB-PIx"/>
+                    </view>
+                    <connections>
+                        <outlet property="equationHistoryScrollView" destination="fhz-Ac-BhD" id="Wfg-Ge-ZfS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FkE-iD-60N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1212" y="-43.628185907046479"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="Calculator-Icon" width="128" height="128"/>
-    </resources>
 </document>

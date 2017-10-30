@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B3E83061FA6F642001D82DE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E83051FA6F642001D82DE /* HistoryViewController.swift */; };
 		8BF48E5E1F9EF1AD00A1860F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48E5D1F9EF1AD00A1860F /* AppDelegate.swift */; };
 		8BF48E601F9EF1AD00A1860F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF48E5F1F9EF1AD00A1860F /* ViewController.swift */; };
 		8BF48E631F9EF1AD00A1860F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF48E611F9EF1AD00A1860F /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8B3E83051FA6F642001D82DE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8BF48E5A1F9EF1AD00A1860F /* Simple Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF48E5D1F9EF1AD00A1860F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BF48E5F1F9EF1AD00A1860F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				8BF48E5D1F9EF1AD00A1860F /* AppDelegate.swift */,
 				8BF48E5F1F9EF1AD00A1860F /* ViewController.swift */,
+				8B3E83051FA6F642001D82DE /* HistoryViewController.swift */,
 				8BF48E611F9EF1AD00A1860F /* Main.storyboard */,
 				8BF48E641F9EF1AD00A1860F /* Assets.xcassets */,
 				8BF48E661F9EF1AD00A1860F /* LaunchScreen.storyboard */,
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3E83061FA6F642001D82DE /* HistoryViewController.swift in Sources */,
 				8BF48E601F9EF1AD00A1860F /* ViewController.swift in Sources */,
 				8BF48E5E1F9EF1AD00A1860F /* AppDelegate.swift in Sources */,
 			);

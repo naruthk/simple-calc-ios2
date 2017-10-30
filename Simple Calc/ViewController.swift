@@ -10,10 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    //MARK: Properties
+    // MARK: Properties
     @IBOutlet weak var resultLabel: UILabel!
+    public var equationHistory: [String] = []
     
-    //MARK: Variables
+    // MARK: Variables
     private var inputs = [Int]()
     private var digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     private var firstInputStr = ""
@@ -29,11 +30,15 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    //MARK: Number + Dot Pads Buttons
-    @IBAction func dot(_ sender: UIButton) {
-        //TODO: Evaluating doubles (for extra credit)
-        
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "HistorySegue") {
+            let history = segue.destination as! HistoryViewController
+            history.equationHistory = self.equationHistory
+        }
     }
+    
+    // MARK: Number Buttons
     @IBAction func num0(_ sender: UIButton) {
         let digit = "\(digits[0])"
         performInputTracking(digit)
@@ -85,7 +90,7 @@ class ViewController: UIViewController {
         inputTrackerStr += digit
     }
     
-    //MARK: Operations
+    // MARK: Operations
     @IBAction func addBtn(_ sender: UIButton) {
         hasClickedAnOperand = true
         inputs.append(Int(resultLabel.text!)!)
@@ -110,22 +115,53 @@ class ViewController: UIViewController {
         inputTrackerStr += " / "
         print("/ is clicked")
     }
+    @IBAction func modBtn(_ sender: UIButton) {
+        hasClickedAnOperand = true
+        inputs.append(Int(resultLabel.text!)!)
+        inputTrackerStr += " % "
+        print("% is clicked")
+    }
+    
     @IBAction func equalsBtn(_ sender: UIButton) {
         print("Size of input is \(inputs.count)")
+        
+        if (inputs.count == 0) {
+            clear()
+        }
+        
         if (inputs.count >= 1) {
-            inputs.append(Int(resultLabel.text!)!)
-            
             if (inputTrackerStr.contains("count")) {
                 resultLabel.text = "\(inputs.count)"
+                var dummyString = ""
+                for num in inputs {
+                    dummyString += "\(num) count "
+                }
+                equationHistory.append("\(dummyString)= \(inputs.count)")
+                print(equationHistory)
             } else if (inputTrackerStr.contains("fact")) {
                 let result = factorial(n: Int(resultLabel.text!)!)
                 resultLabel.text = "\(result)"
+                var dummyString = ""
+                for num in inputs {
+                    dummyString += "\(num) fact "
+                }
+                equationHistory.append("\(dummyString)= \(result)")
+                print(equationHistory)
             } else if (inputTrackerStr.contains("average")) {
-                let result = inputs.reduce(0, +) / inputs.count
+                let result = Double(Double(inputs.reduce(0, +)) / Double(inputs.count))
                 resultLabel.text = "\(result)"
+                var dummyString = ""
+                for num in inputs {
+                    dummyString += "\(num) average "
+                }
+                equationHistory.append("\(dummyString)= \(result)")
+                print(equationHistory)
+            } else {
+                inputs.append(Int(resultLabel.text!)!)
             }
         }
-        if (inputs.count == 2 && !inputTrackerStr.contains("fact")) {
+        
+        if (inputs.count == 2 && !inputTrackerStr.contains("fact") && !inputTrackerStr.contains("count") && !inputTrackerStr.contains("average")) {
             var result = 0
             
             let inputParts : Array = inputTrackerStr.split(separator: " ")
@@ -141,11 +177,12 @@ class ViewController: UIViewController {
                 result = Int(Int(left)! * Int(right)!)
             } else if (operand == "/") {
                 result = Int(Int(left)! / Int(right)!)
+            } else if (operand == "%") {
+                result = Int(Int(left)! % Int(right)!)
             }
             
-            if (operand == "+" || operand == "-" || operand == "*" || operand == "/") {
+            if (operand == "+" || operand == "-" || operand == "*" || operand == "/" || operand == "%") {
                 inputs = [Int]()
-                inputs.append(result)
                 resultLabel.text = "\(result)"
                 
                 print(result)
@@ -155,17 +192,15 @@ class ViewController: UIViewController {
                 secondInputStr = ""
                 hasClickedAnOperand = false
             }
+            
+            equationHistory.append("\(left) \(operand) \(right) = \(result)")
+            print(equationHistory)
         }
     }
     
-    //MARK: Operation Functions (AC, Count, Average, Factorial)
+    // MARK: Operation Functions (AC, Count, Average, Factorial)
     @IBAction func acBtn(_ sender: UIButton) {
-        inputs = [Int]()
-        resultLabel.text = "\(digits[0])"
-        firstInputStr = ""
-        secondInputStr = ""
-        inputTrackerStr = ""
-        hasClickedAnOperand = false
+        clear()
     }
     @IBAction func countBtn(_ sender: UIButton) {
         let digit = Int(resultLabel.text!)!
@@ -189,7 +224,7 @@ class ViewController: UIViewController {
         inputTrackerStr += " fact "
     }
     
-    //MARK: Private Methods
+    // MARK: Private Methods
     private func factorial(n: Int) -> Int {
         if n == 1 {
             return 1
@@ -204,6 +239,14 @@ class ViewController: UIViewController {
             firstInputStr += digit
             resultLabel.text = "\(firstInputStr)"
         }
+    }
+    private func clear() {
+        inputs = [Int]()
+        resultLabel.text = "\(digits[0])"
+        firstInputStr = ""
+        secondInputStr = ""
+        inputTrackerStr = ""
+        hasClickedAnOperand = false
     }
 }
 
