@@ -19,12 +19,13 @@ class HistoryViewController: UIViewController {
 
         // Initialize a ContainerView
         var containerView = UIView()
+        containerView.isUserInteractionEnabled = true
         
         // Make a padded space box
         var paddedSpace: CGFloat = 40
         
         // Creating and adding labels to the scrollview
-        for equation in equationHistory {
+        for equation in equationHistory.reversed() {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: paddedSpace))
             label.text = equation
             paddedSpace += 40
@@ -32,6 +33,7 @@ class HistoryViewController: UIViewController {
             containerView.addSubview(label)
         }
         equationHistoryScrollView.addSubview(containerView)
+        equationHistoryScrollView.contentSize = CGSize(width: equationHistoryScrollView.contentSize.width, height: 2300)
     }
 
     override func didReceiveMemoryWarning() {
