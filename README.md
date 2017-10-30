@@ -1,6 +1,6 @@
 # Simple Calculator iOS App
 
-This is an INFO 449 iOS Development assignment that involves creating a fully-functional basic calculator app.
+This is *part two() of an INFO 449 iOS Development assignment that involves creating a fully-functional basic calculator app.
 
 ## Functionalities
 
@@ -11,6 +11,11 @@ This is an INFO 449 iOS Development assignment that involves creating a fully-fu
 - Counting number of inputs made
 - Average number
 - Factorial of a number
+
+Recently added:
+
+- History (to check previous equations)
+- Ability to do mod
 
 ### Examples
 
@@ -29,13 +34,3 @@ To find the average of a set of numbers, perform `number` and press `Average`, r
 #### Factorial
 
 Press a `number` then press `Fact`, and followed by the `=` button.
-
----
-
-## Screenshot
-
-![Demo](screenshot.png)
-
----
-
-The calculator logo that I used is freely available for download and is provided by [Smashicons](https://www.flaticon.com/free-icon/calculator_149168#term=calculator&page=1&position=2) at [Flaticon.com](Flaticon.com).
